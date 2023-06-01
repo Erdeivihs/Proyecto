@@ -61,6 +61,7 @@ input {
   flex-direction: column-reverse;
   position: relative;
   padding-top: 1.5rem;
+  border: none !important;
 }
 .input + .input {
   margin-top: 1.5rem;
@@ -69,7 +70,7 @@ input {
 .input-label {
   color: #8597a3;
   position: absolute;
-  top: 1.5rem;
+  /* top: 1.5rem; */
   transition: 0.25s ease;
 }
 

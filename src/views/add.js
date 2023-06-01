@@ -2,12 +2,10 @@ import { getFiltro, getFileRequest, addGame, getButtonValue, añadir } from "../
 
 import '../assets/css/details.css';
 
-export { Edit };
+export { Add };
 
-async function Edit(params) {
+async function Add() {
     let access_token = localStorage.getItem("access_token");
-    let game = await getFiltro('Games?id=eq.' + params, access_token);
-    console.log(game[0].id);
   let divPrincipal = document.querySelector("#contenido");
 
   divPrincipal.innerHTML = `
@@ -15,12 +13,7 @@ async function Edit(params) {
   <div class="container">
 	<!-- code here -->
 	<div class="card">
-		<div class="card-image" id="card-image">	
-			<h2 class="card-heading">
-				${game[0].title}
-				
-			</h2>
-		</div>
+	
     <form>
 		<div class="card-form">
         <div class="input">
@@ -55,7 +48,7 @@ async function Edit(params) {
           </div>
           
 			<div class="action">
-				<button type="submit" id="edit" class="action-button">Edit</button>
+				<button type="submit" id="add" class="action-button">Edit</button>
 			</div>
 
       </form>
@@ -66,17 +59,14 @@ async function Edit(params) {
 
   `;
 
-  let element = document.getElementById("card-image");
-    element.style.backgroundImage = `url("${game[0].thumbnail}")`;
 
-    divPrincipal.querySelector("#edit").addEventListener("click", async function (event) {
-      event.preventDefault();
+    divPrincipal.querySelector("#add").addEventListener("click", async function () {
 
             let title = document.querySelector("#title").value;
 		    let descriptio = document.querySelector("#descriptio").value;
             let genre = document.querySelector("#genre").value;
-        let update = await  añadir("Games?id=eq."+game[0].id,[{"title": title , "short_description": descriptio, "genre": genre}]).then(a=>{console.log(a);}); 
-        console.log(update);
+            let add = addGame("Games", [{"title": title , "short_description": descriptio ,  "genre": genre}], access_token) 
+            console.log(add);
         window.location.hash = "#/admin";
     });
     

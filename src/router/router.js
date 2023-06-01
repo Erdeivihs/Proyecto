@@ -8,6 +8,8 @@ import { Details } from "../views/details.js";
 import { List } from "../views/list.js";
 import { Friend } from "../views/friend.js";
 import { Admin } from "../views/admin.js";
+import { Edit } from "../views/edit.js";
+import { Add } from "../views/add.js";
 
 const router = (route) => {
   
@@ -53,6 +55,12 @@ const router = (route) => {
       case "#/admin":
             Admin();
               break;
+      case "#/edit":
+            Edit(params);
+              break;
+      case "#/add":
+          Add();
+            break;
     }
   
 };
