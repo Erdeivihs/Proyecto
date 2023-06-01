@@ -30,7 +30,7 @@ async function Friend(params) {
 </head>
 <div class="infocardContainer">
   <div id="main">
-    <img src="./assets/img/perfil.png"></img>
+    <img id="image" src="./assets/img/perfil.png"></img>
   </div>
   <div id="textbois">
     

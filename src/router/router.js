@@ -7,6 +7,7 @@ import { Perfil } from "../views/perfil.js";
 import { Details } from "../views/details.js";
 import { List } from "../views/list.js";
 import { Friend } from "../views/friend.js";
+import { Admin } from "../views/admin.js";
 
 const router = (route) => {
   
@@ -48,6 +49,9 @@ const router = (route) => {
             break;
       case "#/friend":
             Friend(params);
+              break;
+      case "#/admin":
+            Admin();
               break;
     }
   

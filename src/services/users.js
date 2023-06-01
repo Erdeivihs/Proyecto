@@ -16,6 +16,7 @@ async function loginUser(email, password) {
         localStorage.setItem("access_token", dataLogin.access_token);
         let user = await buscarPerfil("profiles?select=*&id=eq."+dataLogin.user.id,localStorage.getItem('access_token'))
         localStorage.setItem("username", user.username);
+        localStorage.setItem("admin", user.admin);
         localStorage.setItem("id", user.id);
         localStorage.setItem("email",dataLogin.user.email);
         localStorage.setItem("expirationDate",expirationDate(dataLogin.expires_in));

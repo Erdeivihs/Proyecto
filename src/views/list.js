@@ -11,11 +11,6 @@ async function List() {
   let divPrincipal = document.querySelector("#contenido");
 
   divPrincipal.innerHTML = `
-  <link rel="stylesheet" type="text/css" href="./assets/css/cards.css"> 
-  <link rel="stylesheet" type="text/css" href="./assets/css/search.css"> 
-  <link rel="stylesheet" type="text/css" href="./assets/css/botones.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/perfil.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/amigos.css"> 
   <head>
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
 <div class="medio">

@@ -125,7 +125,6 @@ async function deleteGame(URI, token) {
     let url = `${urlBase}/rest/v1/${URI}`;
     let headersAux = {...headers, "Authorization" :"Bearer "+token};
     let response = await supaRequest(url,'delete', headersAux);
-    window.location.hash = '#/perfil';
     return response;
 }
 
