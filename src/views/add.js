@@ -65,8 +65,8 @@ async function Add() {
             let title = document.querySelector("#title").value;
 		    let descriptio = document.querySelector("#descriptio").value;
             let genre = document.querySelector("#genre").value;
-            let add = addGame("Games", [{"title": title , "short_description": descriptio ,  "genre": genre}], access_token) 
-            console.log(add);
+            addGame("Games", [{"title": title , "short_description": descriptio ,  "genre": genre}], access_token) 
+            await getFiltro('Games?select=*', access_token);
         window.location.hash = "#/admin";
     });
     

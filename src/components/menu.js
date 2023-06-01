@@ -12,9 +12,8 @@ class Menu {
   rendermenu() {
     let admin = localStorage.getItem("admin");
     let div = document.querySelector("#principal");
-    if (admin) {
+    if (admin == "true") {
       div.innerHTML = `
-      <link rel="stylesheet" type="text/css" href="./assets/css/menu.css"> 
       <body>
           <header class="header">
               <div class="logo">
