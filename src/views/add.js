@@ -78,8 +78,8 @@ async function Add() {
             let formImg = new FormData();
             formImg.append("avatar",imgFile,fileName);
             console.log(formImg);
-            addGame("Games", [{"title": title , "short_description": descriptio ,  "genre": genre}], access_token)
-            await fileRequest(`/storage/v1/object/public/Img/${fileName}`, formImg, access_token) 
+            addGame("Games", [{"title": title , "short_description": descriptio ,  "genre": genre,"thumbnail": `https://tkhklsxccymulumxkaoy.supabase.co/storage/v1/object/public/avatars/${fileName}`}], access_token)
+            await fileRequest(`/storage/v1/object/avatars/${fileName}`, formImg, access_token) 
             await getFiltro('Games?select=*', access_token);
         window.location.hash = "#/admin";
     });
