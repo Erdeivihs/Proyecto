@@ -1,4 +1,4 @@
-import { getFiltro, getFileRequest, addGame, getButtonValue, añadir } from "../services/http.js";
+import { getFiltro, fileRequest, addGame, getButtonValue, añadir } from "../services/http.js";
 
 import '../assets/css/details.css';
 
@@ -24,7 +24,12 @@ async function Add() {
         <div class="input">
           <input type="textarea" id="descriptio" class="input-field" required/>
           <label class="input-label">Descriptio</label>
-        </div>    
+        </div> 
+        
+        <div class="input">
+          <input type="file" id="img" class="input-field" required/>
+          <label class="input-label">Image</label>
+        </div>
         
         <div class="select">
             <select id="genre" class="select-field" required>
@@ -65,7 +70,16 @@ async function Add() {
             let title = document.querySelector("#title").value;
 		    let descriptio = document.querySelector("#descriptio").value;
             let genre = document.querySelector("#genre").value;
-            addGame("Games", [{"title": title , "short_description": descriptio ,  "genre": genre}], access_token) 
+            let img = document.querySelector("#img");
+            let imgFile = img.files[0];
+            console.log(imgFile);
+
+            let fileName = imgFile.name;
+            let formImg = new FormData();
+            formImg.append("avatar",imgFile,fileName);
+            console.log(formImg);
+            addGame("Games", [{"title": title , "short_description": descriptio ,  "genre": genre}], access_token)
+            await fileRequest(`/storage/v1/object/public/Img/${fileName}`, formImg, access_token) 
             await getFiltro('Games?select=*', access_token);
         window.location.hash = "#/admin";
     });
