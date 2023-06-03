@@ -146,8 +146,7 @@ async function Perfil() {
   
     iconElement.onclick = function () {
       let friendId = this.getAttribute("data-gameid");
-      deleteGame("Friends?id_friends=eq." + friendId + "&id_profiles=eq." + localStorage.getItem("id"), localStorage.getItem("access_token"));
-      Perfil();
+      deleteGame("Friends?id_friends=eq." + friendId + "&id_profiles=eq." + localStorage.getItem("id"), localStorage.getItem("access_token"));   
     };
   
     friendElement.appendChild(iconElement);
