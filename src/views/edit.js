@@ -1,4 +1,4 @@
-import { getFiltro, getFileRequest, addGame, getButtonValue, añadir } from "../services/http.js";
+import { getFiltro, fileRequest, addGame, getButtonValue, añadir } from "../services/http.js";
 
 import '../assets/css/details.css';
 
@@ -31,7 +31,15 @@ async function Edit(params) {
         <div class="input">
           <input type="textarea" id="descriptio" class="input-field" required/>
           <label class="input-label">Descriptio</label>
-        </div>    
+        </div>  
+        
+        <div>
+        <br>
+        <label class="input-label">IMAGE</label>
+        <br>
+          <input type="file" id="img" required/>
+          <br>
+        </div>
         
         <div class="select">
             <select id="genre" class="select-field" required>
@@ -73,9 +81,18 @@ async function Edit(params) {
       event.preventDefault();
 
             let title = document.querySelector("#title").value;
-		    let descriptio = document.querySelector("#descriptio").value;
+		        let descriptio = document.querySelector("#descriptio").value;
             let genre = document.querySelector("#genre").value;
-        let update = await  añadir("Games?id=eq."+game[0].id,[{"title": title , "short_description": descriptio, "genre": genre}]).then(a=>{console.log(a);}); 
+            let img = document.querySelector("#img");
+            let imgFile = img.files[0];
+            console.log(imgFile);
+
+            let fileName = imgFile.name;
+            let formImg = new FormData();
+            formImg.append("avatar",imgFile,fileName);
+            console.log(formImg);
+        let update = await  añadir("Games?id=eq."+game[0].id,[{"title": title , "short_description": descriptio, "genre": genre, "thumbnail": `https://tkhklsxccymulumxkaoy.supabase.co/storage/v1/object/public/avatars/${fileName}`}]).then(a=>{console.log(a);}); 
+        await fileRequest(`/storage/v1/object/avatars/${fileName}`, formImg, access_token) 
         console.log(update);
         window.location.hash = "#/admin";
     });

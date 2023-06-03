@@ -26,9 +26,12 @@ async function Add() {
           <label class="input-label">Descriptio</label>
         </div> 
         
-        <div class="input">
-          <input type="file" id="img" class="input-field" required/>
-          <label class="input-label">Image</label>
+        <div>
+        <br>
+        <label class="input-label">IMAGE</label>
+        <br>
+          <input type="file" id="img" required/>
+          <br>
         </div>
         
         <div class="select">
@@ -53,7 +56,7 @@ async function Add() {
           </div>
           
 			<div class="action">
-				<button type="submit" id="add" class="action-button">Edit</button>
+				<button type="submit" id="add" class="action-button">Add</button>
 			</div>
 
       </form>

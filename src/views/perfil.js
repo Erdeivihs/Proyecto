@@ -118,7 +118,10 @@ async function Perfil() {
         card.querySelector("#add").addEventListener("click", function () {
             let gameid = this.getAttribute("data-gameid");
             deleteGame("User_games?id_games=eq."+gameid+"&id_profiles=eq."+localStorage.getItem("id"), localStorage.getItem("access_token"));
-            Perfil();
+            setTimeout(function() {
+              Perfil();
+            }, 500);
+            
           });
 
           
