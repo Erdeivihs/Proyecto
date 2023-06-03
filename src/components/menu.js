@@ -41,7 +41,28 @@ class Menu {
               <a class="btn" href="#/perfil"><button>Perfil</button></a>
               <a id="logout" class="btn" href="#"><button>LogOut</button></a>
           </header>
-          <div id="contenido"></div>
+          <div id="contenido">
+          <div class= 'fondo'>
+          <div class="container_content">
+          <div class="container_content_inner">
+          <div class="title">
+            <h1>Gamen't</h1>
+          </div>
+          <div class="par">
+          <p>
+          This website has been made by a student of 2DAW, the site consists of a list of video games and management of them.
+          </p>
+          </div>
+          </div>
+          </div>
+           <div class="container_outer_img">
+            <div class="img-inner">
+            <img alt="" class="container_img"/>
+                 </div>
+               </div>
+            </div>
+          <div class="overlay"></div>
+          </div>
       </body>
   
     <div id="contenido"></div>
