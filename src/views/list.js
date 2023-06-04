@@ -40,7 +40,7 @@ async function List() {
             <div class="content">
               <p class="title">${users.username}</p>
             </div>
-              <img id="image" src="" />
+              <img id="image" />
           </div>
         </div>
         `;
